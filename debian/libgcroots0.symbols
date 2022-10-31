@@ -1,0 +1,17 @@
+libgcroots.so.0 libgcroots0 #MINVER#
+* Build-Depends-Package: libgcroots-dev
+ GCROOTS_call_with_gc_ready_stack@Base 0.8.5
+ (arch=sparc64)GCROOTS_clear_stack_inner@Base 0.8.5
+ GCROOTS_fin@Base 0.8.5
+ GCROOTS_init@Base 0.8.5
+ GCROOTS_is_protected@Base 0.8.5
+ GCROOTS_is_protected_context@Base 0.8.5
+ GCROOTS_mark@Base 0.8.5
+ GCROOTS_noop1@Base 0.8.5
+ GCROOTS_push_current_stack@Base 0.8.5
+ (arch=alpha mips mipsel mipsn32 mipsn32el mips64 mips64el mipsr6 mipsr6el mipsn32r6 mipsn32r6el mips64r6 mips64r6el m68k powerpc powerpcspe ppc64 ppc64el)GCROOTS_push_one@Base 0.8.5
+ GCROOTS_push_regs@Base 0.8.5
+ GCROOTS_push_regs_and_stack@Base 0.8.5
+ GCROOTS_with_callee_saves_pushed@Base 0.8.5
+ (arch=ia64 sparc64)GCROOTS_save_regs_in_stack@Base 0.8.5
+ (arch=ia64 sparc64)GCROOTS_save_regs_ret_val@Base 0.8.5

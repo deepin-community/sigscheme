@@ -1,0 +1,84 @@
+Source: sigscheme
+Section: lisp
+Priority: optional
+Maintainer: HIGUCHI Daisuke (VDR dai) <dai@debian.org>
+Build-Depends: debhelper-compat (= 13), pkg-config
+Standards-Version: 4.5.0
+Homepage: https://github.com/uim/sigscheme
+Vcs-Git: https://salsa.debian.org/debian/sigscheme.git
+Vcs-Browser: https://salsa.debian.org/debian/sigscheme
+Rules-Requires-Root: no
+
+Package: sigscheme
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Scheme Interpreter to be embedded
+ SigScheme is a Scheme interpreter, which targets embedded programs.
+ SigScheme is used as extension engine for uim, universal input method
+ system.  It conforms to R5RS, some of SRFI-s.
+
+Package: sigscheme-runtime
+Architecture: all
+Depends: ${misc:Depends}
+Multi-Arch: foreign
+Replaces: libsscm3 (<< 0.8.5-3)
+Breaks: libsscm3 (<< 0.8.5-3)
+Description: Runtime for sigscheme Scheme interpreter
+ SigScheme is a Scheme interpreter, which targets embedded programs.
+ SigScheme is used as extension engine for uim, universal input method
+ system.  It conforms to R5RS, some of SRFI-s.
+ .
+ This package contains runtime files for the sigscheme package.
+
+Package: libsscm3
+Section: libs
+Architecture: any
+Depends: sigscheme-runtime (= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Description: Shared library for sigscheme Scheme interpreter
+ SigScheme is a Scheme interpreter, which targets embedded programs.
+ SigScheme is used as extension engine for uim, universal input method
+ system.  It conforms to R5RS, some of SRFI-s.
+ .
+ This package contains the shared libraries for sigscheme.
+
+Package: libsscm-dev
+Section: libdevel
+Architecture: any
+Depends: libsscm3 (= ${binary:Version}), ${misc:Depends}
+Description: Development library for sigscheme Scheme interpreter
+ SigScheme is a Scheme interpreter, which targets embedded programs.
+ SigScheme is used as extension engine for uim, universal input method
+ system.  It conforms to R5RS, some of SRFI-s.
+ .
+ This package contains header files and static libraries for sigscheme
+ development.
+
+Package: libgcroots0
+Section: libs
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Description: GC shared library for sigscheme Scheme interpreter
+ SigScheme is a Scheme interpreter, which targets embedded programs.
+ SigScheme is used as extension engine for uim, universal input method
+ system.  It conforms to R5RS, some of SRFI-s.
+ .
+ This package contains the shared libraries for garbage collector roots.
+
+Package: libgcroots-dev
+Section: libdevel
+Architecture: any
+Depends: libgcroots0 (= ${binary:Version}), ${misc:Depends}
+Multi-Arch: same
+Description: Development GC library for sigscheme Scheme interpreter
+ SigScheme is a Scheme interpreter, which targets embedded programs.
+ SigScheme is used as extension engine for uim, universal input method
+ system.  It conforms to R5RS, some of SRFI-s.
+ .
+ This package contains header files and static libraries for garbage
+ collector roots development.

@@ -1,0 +1,13 @@
+Document: sigscheme
+Title: SigScheme document
+Author: YAMAMOTO Kengo / YamaKen, Jun Inoue, Kazuki Ohta
+Abstract: This file documents about Scheme Interpreter can be embedded.
+Section: Programming/Lisp
+
+Format: HTML
+Index: /usr/share/doc/sigscheme/index.html
+Files: /usr/share/doc/sigscheme/*.html
+
+Format: Text
+Index: /usr/share/doc/sigscheme/index.txt
+Files: /usr/share/doc/sigscheme/*.txt /usr/share/doc/sigscheme/*.txt.gz

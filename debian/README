@@ -1,0 +1,7 @@
+The Debian Package 'sigscheme'
+------------------------------
+
+As of 0.7.1, the sigscheme source package builds five binary
+packages: sigscheme, libsscm1, libsscm-dev, libgcroots0, and libgcroots-dev.
+
+Manual sscm.1 was added by NIIBE Yutaka for Debian distribution.

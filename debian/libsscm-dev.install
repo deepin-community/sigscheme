@@ -1,0 +1,4 @@
+/usr/include/sigscheme/*.h
+/usr/lib/*/libsscm*.a
+/usr/lib/*/libsscm*.so
+/usr/lib/*/pkgconfig/sigscheme.pc

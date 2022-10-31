@@ -1,0 +1,425 @@
+sigscheme (0.9.1-1) unstable; urgency=medium
+
+  * New upstream version 0.9.1
+  * d/p/getcontext: removed, applied upstream.
+  * d/p/maxpathlen-hurd-0.8.3: removed, applied upstream.
+  * d/p/aarch64.diff: removed, applied upstream.
+  * d/p/riscv64.diff: removed, applied upstream.
+  * d/p/gcc10.diff: removed, applied upstream.
+  * d/p/ldadd-0.8.3: disabled,
+    see: https://github.com/uim/sigscheme/pull/4
+  * d/p/test-gc-protect-0.8.5: disabled,
+    see: https://github.com/uim/sigscheme/pull/6
+  * d/p/test-*-coll-0.8.3: add Forwarded field.
+  * d/p/series: updated.
+  * d/salsa-ci.yml: new file.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 25 Aug 2020 11:42:51 +0900
+
+sigscheme (0.9.0-4) unstable; urgency=medium
+
+  * d/p/gcc10.diff: support GCC-10 (Closes: #957795).
+  - taken from https://bugs.gentoo.org/706906
+    created by Jeroen Roovers <jer@gentoo.org>.
+  * d/libgcroots0.symbols: remove GCROOTS_jmp_buf@Base.
+  * Update Standards-Version to 4.5.0.
+  * Bump debhelper compatibility level to 13.
+  * set Rules-Requires-Root as no.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Fri, 14 Aug 2020 13:01:12 +0900
+
+sigscheme (0.9.0-3) unstable; urgency=medium
+
+  * Brown Paper Bag Release.
+  * d/libgcroots0.symbols: add riscv64 architecture.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 13 Aug 2019 22:43:20 +0900
+
+sigscheme (0.9.0-2) unstable; urgency=medium
+
+  * d/p/riscv64.diff: support RISC-V
+  * d/not-installed: new file, mute dh_missing
+  * eliminate lintian warning: symbols-file-missing-build-depends-package-field
+  * Bump debhelper compatibility level to 12
+  * Update Standards-Version to 4.4.0
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 13 Aug 2019 18:41:00 +0900
+
+sigscheme (0.9.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  - d/p/fix_spelling_error_sigscheme.patch: removed, applied upstream.
+  - d/p/add-ac-config-macro-dir-m4-0.8.5: removed, applied upstream.
+  - d/p/makefile-change-0.8.5: removed, applied upstream.
+  - d/p/ldadd-0.8.3: refresh patch.
+  - d/p/support-automake-test-log-driver: rename and refresh patch.
+  - d/p/getcontext: rename and refresh patch.
+  * d/changelog: eliminate lintian warning: file-contains-trailing-whitespace
+  * Update Standards-Version to 4.1.4
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Thu, 10 May 2018 19:50:42 +0900
+
+sigscheme (0.8.5-8) unstable; urgency=medium
+
+  * d/watch: do not catch suffix for upstream version.
+  * d/p/fix_spelling_error_sigscheme.patch: eliminate lintian warning:
+    spelling-error-in-patch-description
+  * d/rule: remove autoreconf due to enabled by default since debhelper 10
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Fri, 16 Mar 2018 22:26:59 +0900
+
+sigscheme (0.8.5-7) unstable; urgency=medium
+
+  * d/libgcroots0.symbols: add architectures (Closes: #892972)
+  * d/watch: check gz archive.
+  * d/changelog: eliminate lintian warning: file-contains-trailing-whitespace
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Thu, 15 Mar 2018 23:19:58 +0900
+
+sigscheme (0.8.5-6) unstable; urgency=medium
+
+  * Move Vcs-* to salsa.debian.org
+  * run wrap-and-sort
+  * use https instead of http
+  * enable autopkgtest
+  * libgcroots-dev marked as Multi-Arch: same by MA hinter
+  * Bump debhelper compatibility level to 11
+  * Update Standards-Version to 4.1.3
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sun, 14 Jan 2018 23:10:32 +0900
+
+sigscheme (0.8.5-5) unstable; urgency=medium
+
+  * debian/control
+    - set myself as the maintainer with ex-maintainer's permission.
+      thanks to NIIBE Yutaka <gniibe@fsij.org> for previous works.
+    - add Vsc-* headers.
+    - eliminate lintian warning: binary-control-field-duplicates-source
+    - eliminate lintian warning: duplicate-long-description
+  * debian/copyright: eliminate lintian warnings.
+    - wildcard-matches-nothing-in-dep5-copyright
+    - dep5-copyright-license-name-not-unique
+    - unused-file-paragraph-in-dep5-copyright
+  * eliminate lintian warning: obsolete-url-in-packaging code.google.com
+  * enable hardening all
+    - debian/rules: add hardening=+all
+    - debian/sigscheme.lintian-overrides: hardening-no-fortify-functions
+  * eliminate lintian warning:
+    possible-documentation-but-no-doc-base-registration
+    - debian/sigscheme.doc-base: new file.
+  * debian/patches/fix_spelling_error_sigscheme.patch
+    - fix spelling error sigscheme: charater character.
+  * bump up Standards-Version 3.9.8.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sat, 06 Aug 2016 23:03:10 +0900
+
+sigscheme (0.8.5-4.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * fix FTBFS on arm64 (Closes: #758710).
+    thanks to Artur Rona <ari-tczew@tlen.pl> for picking from Ubuntu.
+    - debian/libgcroots0.symbols: add arm64 support.
+    - debian/patches/aarch64.diff: new patch to add arm64 support.
+      thanks to Matthias Klose <doko@ubuntu.com>.
+    - debian/patches/series: update.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 27 Jan 2015 18:57:38 +0900
+
+sigscheme (0.8.5-4.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * fix package missing the sources for the autoconf macros (Closes: #736177).
+    - debian/rules: use autoreconf instead of autotools-dev.
+    - debian/control: add dh-autoreconf and pkg-config to B-D.
+    - debian/patches/add-ac-config-macro-dir-m4-0.8.5: new file.
+    - debian/patches/support-automake-test-log-driver-0.8.5: new file.
+  * debian/libgcroots0.symbols: fix FTBFS for mips64(el) (Closes:  #729670).
+    thanks to YunQiang Su <wzssyqa@gmail.com>.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Thu, 17 Apr 2014 16:44:03 +0900
+
+sigscheme (0.8.5-4) unstable; urgency=low
+
+  * debian/rules: Add --with autotools-dev.  Remove --with quilt.
+  * debian/control (Build-Depends): Remove quilt.
+    [sigscheme-runtime] (Replaces, Breaks): Add (Closes: #717238).
+    Thanks to Andreas Beckmann.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Thu, 18 Jul 2013 23:15:17 +0000
+
+sigscheme (0.8.5-3) unstable; urgency=low
+
+  * Incorporate NMU.
+  * debian/compat: Require 9.
+  * debian/control (Build-Depends): Require debhelper >=9.
+    (Multi-Arch, Pre-Depends): Added.
+    (Standards-Version): Conforms to 3.9.4.
+    (Description): Don't start with article.
+    [sigscheme-runtime]: New package.
+  * debian/*.install: Update for Multi-arch support.  Remove *.la
+    (Closes: #633270).  Thanks to Neil Williams.
+  * debian/patches/test-gc-protect-0.8.5: New.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 09 Jul 2013 05:03:54 +0000
+
+sigscheme (0.8.5-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * FTBFS(s390x): missing symbols (Closes: #638372)
+    - debian/libgcroots0.symbols: Updated.  Fix FTBFS on s390x.
+      thanks to Aurelien Jarno <aurel32@debian.org>.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Thu, 12 Jan 2012 15:03:41 +0900
+
+sigscheme (0.8.5-2) unstable; urgency=low
+
+  * debian/copyright: Use dep5 format.
+  * debian/libgcroots0.symbols: Updated.  Fix FTBFS on mips, mipsel, and
+    s390.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Mon, 21 Feb 2011 10:55:19 +0900
+
+sigscheme (0.8.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control (Standards-Version): Updated to 3.9.1.
+    (Homepage): Updated.
+  * debian/sscm.1, debian/sigscheme.manpages: New.
+  * debian/patches/manpage-0.8.3: Removed.
+  * debian/patches/makefile-change-0.8.5: New.
+  * debian/patches/*: Refreshed.
+  * debian/libgcroots0.symbols: New.
+  * debian/libsscm3.symbols: New.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 15 Feb 2011 16:19:55 +0900
+
+sigscheme (0.8.3-8) unstable; urgency=low
+
+  * debian/patches/test-storage-coll-0.8.3: Updated.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Thu, 25 Feb 2010 15:40:44 +0900
+
+sigscheme (0.8.3-7) unstable; urgency=low
+
+  * debian/control (Build-Depends): Added quilt and autotools-dev.
+  Thanks to Cyril Brulebois <kibi@debian.org>.  Closes: #571227.
+  (Section): Now, it's lisp (was: interpreters).
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Thu, 25 Feb 2010 12:37:30 +0900
+
+sigscheme (0.8.3-6) unstable; urgency=low
+
+  * debian/{rules,source,patches,README.source}: Use 3.0 (quilt) format.
+  * debian/patches/test-storage-coll-0.8.3: Updated to fix FTBFS for hppa.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Wed, 24 Feb 2010 15:45:44 +0900
+
+sigscheme (0.8.3-5) unstable; urgency=low
+
+  * src/Makefile.{am,in}: Remove @GCROOTS_LIBS@.
+  * debian/control (Description): Fix by Julian Aloofi (Closes: #504288).
+  (Build-Depends): Bump	to 3.8.4.
+  * src/main.c: Puta a workaround for MAXPATHLEN for Hurd.
+  * test-c/test-gc-protect-coll.c: Correct fix.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Fri, 12 Feb 2010 11:57:34 +0900
+
+sigscheme (0.8.3-4) unstable; urgency=low
+
+  * Undo changes of 0.8.3-3.
+  * test-c/test-gc-protect-coll.c: Fix FTBFS on sparc and ia64
+  (Closes: #489844).
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 22 Jul 2008 17:33:28 +0900
+
+sigscheme (0.8.3-3) unstable; urgency=low
+
+  * libgcroots/mach_dep.c: Fix FTBFS on sparc and ia64, comparing
+  implementation in GCC 4.3 (Closes: #489844).
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 22 Jul 2008 11:36:51 +0900
+
+sigscheme (0.8.3-2) unstable; urgency=low
+
+  * test-c/test-storage-coll.c: Fix FTBFS on alpha.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 22 Jul 2008 09:56:47 +0900
+
+sigscheme (0.8.3-1) unstable; urgency=low
+
+  * debian/libsscm3.install: Added runtime Scheme libraries
+    (/usr/share/sigscheme/*) to libsscm3 package (Closes: #488393).
+    Thanks to Luca Falavigna <dktrkranz@ubuntu.com>.
+  * debian/control (Standards-Version): Conform to 3.8.0.
+  * New upstream release.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 01 Jul 2008 11:07:54 +0900
+
+sigscheme (0.8.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat, 12 Apr 2008 09:46:26 +0900
+
+sigscheme (0.8.1-1) unstable; urgency=low
+
+  * debian/rules: Check existence of Makefile for distclean.
+  * debian/control (Standards-Version): it's conform to 3.7.3.
+  (Homepage): New field.
+  * configure, libgcroots/configure: Regenerated.
+  * New upstream release.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sun, 06 Apr 2008 15:58:31 +0900
+
+sigscheme (0.8.0-5) unstable; urgency=low
+
+  * configure, libgcroots/configure: Regenerated.
+  * configure.in, libgcroots/configure.ac: Just use AC_CHECK_FUNCS.
+  * libgcroots/mach_dep.c: Revert the changes.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 02 Oct 2007 11:54:37 +0900
+
+sigscheme (0.8.0-4) unstable; urgency=low
+
+  * libgcroots/mach_dep.c: Fix FTBFS of sparc.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Wed, 26 Sep 2007 16:01:19 +0900
+
+sigscheme (0.8.0-3) unstable; urgency=low
+
+  * libgcroots/mach_dep.c: Fix FTBFS of ia64.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Wed, 26 Sep 2007 15:03:08 +0900
+
+sigscheme (0.8.0-2) unstable; urgency=low
+
+  * libgcroots/mach_dep.c: Fix FTBFS of hppa, mips, mipsel.
+  * debian/control: Fix Depends: field of libsscm-dev.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 25 Sep 2007 11:29:24 +0900
+
+sigscheme (0.8.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/watch: Specify homepage.
+  * debian/rules: Added --enable-conf=full.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 18 Sep 2007 14:35:13 +0900
+
+sigscheme (0.7.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * Closes: #430304, which is false for sigscheme.
+  * debian/watch: New place.
+  * debian/copyright: Updated.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 17 Jul 2007 12:05:13 +0900
+
+sigscheme (0.7.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Mon, 29 Jan 2007 15:31:24 +0900
+
+sigscheme (0.7.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/watch: New place.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Mon,  8 Jan 2007 11:29:43 +0900
+
+sigscheme (0.7.2-3) unstable; urgency=low
+
+  * Fixes FTBFS on m68k (Closes: #405664).
+    * test-c/test-alignment.c: Errors are expected, clear errors.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat,  6 Jan 2007 18:23:41 +0900
+
+sigscheme (0.7.2-2) unstable; urgency=low
+
+  * Fixes FTBFS on hppa.
+    * libgcroots/gcroots.c (GC_push_current_stack): Revert the change
+      of 0.7.2.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat,  6 Jan 2007 14:12:07 +0900
+
+sigscheme (0.7.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Tried to fix FTBFS on m68k.  Thanks to Stephen R. Marenka,
+    for pointing this out.
+    * test-c/sscm-test.h: Fix formatting string.
+    * test-c/test-alignment.c: Work around added.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat,  6 Jan 2007 13:30:03 +0900
+
+sigscheme (0.7.1-3) unstable; urgency=low
+
+  * Fixes FTBFS on sparc:
+    * libgcroots/configure.ac (machdep): Handle sparc-*-linux*.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Fri,  5 Jan 2007 15:21:08 +0900
+
+sigscheme (0.7.1-2) unstable; urgency=low
+
+  * Fixes FTBFS on mips, mipsel, and ia64:
+    * libgcroots/gcroots.c (GCROOTS_init): Fix a bug of return value.
+    * libgcroots/gcroots.c (GC_save_regs_ret_val): Declared.
+    * libgcroots/include/private/gcroots_priv.h: Added GC_save_regs_in_stack.
+  * debian/*.install: *.pc are in -dev packages.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Fri,  5 Jan 2007 13:44:35 +0900
+
+sigscheme (0.7.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: Updated.
+  * debian/control (Standards-Version): it's compliant to 3.7.2.2.
+  * debian/watch: URL has been changed.
+  * debian/docs: Removed doc/*.txt.
+  * debian/rules (build-stamp): Added 'make check'.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Mon, 25 Dec 2006 10:40:29 +0900
+
+sigscheme (0.6.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * {sigscheme,libsscm0,libsscm-dev}.install: New files.
+  * {sigscheme,libsscm0,libsscm-dev}.files: New files.
+  * doc/Makefile.am: Added man1_MANS description.
+  * doc/sscm.1: New file.
+  * debian/control (Build-Depends): Removed the dependency to ruby.
+  (Package): Added libsscm0 and libsscm-dev.
+  * debian/rules: Enable dh_makeshlibs and dh_install.
+  * debian/watch: URL has been changed.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat,  1 Jul 2006 15:51:03 +0900
+
+sigscheme (0.5.0-2) unstable; urgency=low
+
+  * debian/control (Build-Depends): Added ruby.
+    Thanks to Frederik Schueler.  Closes: #368571
+  * debian/rules (clean): invoke 'distclean' instead of 'clean'.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 23 May 2006 21:46:41 +0900
+
+sigscheme (0.5.0-1) unstable; urgency=low
+
+  * New upstream release. Closes: #360904
+  * debian/watch: URL has been changed.
+  * debian/control (Standards-Version): it's compliant to 3.7.2.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 23 May 2006 06:54:31 +0900
+
+sigscheme (0.2.9) unstable; urgency=low
+
+  * New upstream release. Closes: #345722
+  * debian/watch: New file.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Wed,  4 Jan 2006 16:34:22 +0900
+
+sigscheme (0.1.0-1) unstable; urgency=low
+
+  * Initial release. Closes: #326889
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Wed,  7 Sep 2005 10:54:02 +0900

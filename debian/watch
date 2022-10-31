@@ -1,0 +1,2 @@
+version=3
+https://github.com/uim/sigscheme/releases .*/sigscheme-(.*)\.tar\.(?:gz|bz2)

@@ -1,0 +1,44 @@
+Description: support automake TEST_LOG_DRIVER
+Author: HIGUCHI Daisuke (VDR dai) <dai@debian.org>
+Last-Update: 2018-05-10
+Forwarded: not-needed
+
+Index: sigscheme/test/Makefile.am
+===================================================================
+--- sigscheme.orig/test/Makefile.am
++++ sigscheme/test/Makefile.am
+@@ -123,7 +123,7 @@ imported_tests = \
+ EXTRA_DIST += $(sscm_tests) $(imported_tests)
+ 
+ LOG_COMPILER = $(SH)
+-AM_LOG_FLAGS = $(top_builddir)/test/run-singletest.sh
++AM_LOG_FLAGS = $(abs_top_builddir)/src/sscm --system-load-path $(abs_top_builddir)/lib
+ if USE_SHELL
+ TESTS = $(sscm_tests) $(sscm_optional_tests)
+ XFAIL_TESTS = $(sscm_xfail_tests)
+Index: sigscheme/test/test-formatplus.scm
+===================================================================
+--- sigscheme.orig/test/test-formatplus.scm
++++ sigscheme/test/test-formatplus.scm
+@@ -42,7 +42,7 @@
+ 
+ ;; test SRFI-48 compatible part of format+
+ (define format format+)
+-(load "./test/test-srfi48.scm")
++(load "test-srfi48.scm")
+ (newline)
+ 
+ (define tn test-name)
+Index: sigscheme/test/test-srfi48.scm
+===================================================================
+--- sigscheme.orig/test/test-srfi48.scm
++++ sigscheme/test/test-srfi48.scm
+@@ -43,7 +43,7 @@
+     (test-skip "SRFI-48 is not enabled"))
+ 
+ ;; test SRFI-28 compatible part of SRFI-48
+-(load "./test/test-srfi28.scm")
++(load "test-srfi28.scm")
+ (newline)
+ 
+ (define tn test-name)

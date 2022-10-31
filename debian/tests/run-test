@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+QUILT_PATCHES=debian/patches quilt push -a || true
+
+sed -e 's/src\///' runtest.sh > runtest-nosrc.sh
+sed -e 's/src\///' runtest-tail-rec.sh > runtest-tail-rec-nosrc.sh
+
+chmod +x ./runtest-nosrc.sh ./runtest-tail-rec-nosrc.sh
+
+./runtest-nosrc.sh
+./runtest-tail-rec-nosrc.sh
+
+rm -f ./runtest-nosrc.sh ./runtest-tail-rec-nosrc.sh
+
+QUILT_PATCHES=debian/patches quilt pop -a || true
