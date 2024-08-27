@@ -1,3 +1,19 @@
+sigscheme (0.9.1-2) unstable; urgency=medium
+
+  * QA upload.
+
+  [ Debian Janitor ]
+  * Update watch file format version to 4.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Update standards version to 4.6.0, no changes needed.
+
+  [ HIGUCHI Daisuke (VDR dai) ]
+  * d/p/{ldadd-0.8.3,test-gc-protect-0.8.5}: removed due to no-needed.
+  * Orphan package.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Mon, 27 Jun 2022 09:39:24 +0900
+
 sigscheme (0.9.1-1) unstable; urgency=medium
 
   * New upstream version 0.9.1
