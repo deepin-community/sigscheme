@@ -1,3 +1,9 @@
+sigscheme (0.9.1-2deepin1) unstable; urgency=medium
+
+  * add add-support-for-loongarch.patch 
+
+ -- LiChengGang <lichenggang@uniontech.com>  Fri, 06 Sep 2024 14:01:03 +0800
+
 sigscheme (0.9.1-2) unstable; urgency=medium
 
   * QA upload.

@@ -1,0 +1,44 @@
+From b12d6643d40ca50ef10597ce360ee1356d0c75bb Mon Sep 17 00:00:00 2001
+From: wuruilong <wuruilong@loongson.cn>
+Date: Mon, 18 Sep 2023 01:32:52 +0000
+Subject: [PATCH] Add support for loongarch
+
+---
+ include/private/gcconfig.h | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/libgcroots/include/private/gcconfig.h b/libgcroots/include/private/gcconfig.h
+index 47551f8..7de0109 100644
+--- a/libgcroots/include/private/gcconfig.h
++++ b/libgcroots/include/private/gcconfig.h
+@@ -483,6 +483,10 @@
+ #   define RISCV
+ #   define mach_type_known
+ # endif
++# if defined(__loongarch__)
++#   define LOONGARCH
++#   define mach_type_known
++# endif
+ 
+ /* Feel free to add more clauses here */
+ 
+@@ -1336,6 +1340,19 @@
+ #   endif
+ # endif /* RISCV */
+ 
++# ifdef LOONGARCH
++#   define MACH_TYPE   "LOONGARCH64"
++#   define CPP_WORDSZ  __loongarch_grlen /* 32 or 64 */
++#   define ALIGNMENT   (CPP_WORDSZ/8)
++#   ifdef LINUX
++#     define OS_TYPE "LINUX"
++      extern int __data_start[];
++#     define DATASTART ((ptr_t)__data_start)
++#     define LINUX_STACKBOTTOM
++#     define DYNAMIC_LOADING
++#   endif
++# endif /* LOONGARCH */
++
+ # ifdef NS32K
+ #   define MACH_TYPE "NS32K"
+ #   define ALIGNMENT 4
