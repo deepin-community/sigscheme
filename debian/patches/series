@@ -1,3 +1,4 @@
 test-gc-protect-coll-0.8.3
 test-storage-coll-0.8.3
 support-automake-test-log-driver
+add-support-for-loongarch.patch
